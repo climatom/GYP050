@@ -1,0 +1,10 @@
+numpy
+matplotlib
+pandas
+datetime
+netCDF4
+requests
+sklearn
+scipy
+xarray
+pyPI

@@ -17,11 +17,11 @@ def gev_pdf(x,shape,loc,scale):
 
 def gev_cdf(x,shape,loc,scale):
     x=np.atleast_1d(x)
-    c=np.zeros(len(x))
-    t=np.zeros(len(x))
+    c=np.ones(len(x))
+    t=np.ones(len(x))
     idx=x<(loc-scale/shape)
     t[idx]=np.power((1+shape*(x[idx]-loc)/scale),-1/shape)
-    c[idx]=np.exp(-t)
+    c[idx]=np.exp(-t[idx])
     return c
 
 
