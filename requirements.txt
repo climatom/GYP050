@@ -8,3 +8,4 @@ sklearn
 scipy
 xarray
 pyPI
+numba
