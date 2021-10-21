@@ -32,7 +32,7 @@ c.retrieve(
         ],
         'area': [
             35, -130, 10,
-            -110,
+            10,
         ],
         'variable': [
             'specific_humidity', 'temperature',
@@ -56,7 +56,7 @@ c.retrieve(
         'time': '00:00',
         'area': [
             35, -130, 10,
-            -110,
+            10,
         ],
     },
     'era5_mslp.nc')
@@ -65,7 +65,9 @@ c.retrieve(
 # Merge with CDO and remove
 abspath=str(Path().absolute())
 savepath="/".join(abspath.split("/")[:-1])+"/Data/"
-os.system("cdo -O merge era5_mslp.nc era5_pl.nc %sera5_tc_ilev.nc"%savepath)
+print(savepath)
+os.system("cdo -O merge era5_mslp.nc era5_pl.nc %sera5_tc_lev.nc"%savepath)
+os.system("cdo -O invertlev %sera5_tc_lev.nc %sera5_tc_ilev.nc"%(savepath,savepath))
 rms=["era5_mslp.nc", "era5_pl.nc"]
 for i in rms: os.remove(i)
 
