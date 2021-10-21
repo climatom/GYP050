@@ -10,3 +10,5 @@ xarray
 pyPI
 numba
 tcpyPI
+basemap
+
